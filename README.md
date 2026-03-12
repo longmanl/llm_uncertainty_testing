@@ -108,3 +108,14 @@ The experiments on Natural Question follows the evaluation setting from [Semanti
   year={2023}
 }
 ```
+
+### Changes to make it run
+1. moved api key into .env file and .env to .gitignore
+2. downgraded python to 3.8
+3. updated requirements.txt after fixing package version conflicts
+
+### Steps
+1. downgrade to python 3.8
+2. py -3.8 -m venv venv
+3. .\venv\Scripts\Activate
+4. pip install -r requirements.txt
