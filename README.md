@@ -113,9 +113,20 @@ The experiments on Natural Question follows the evaluation setting from [Semanti
 1. moved api key into .env file and .env to .gitignore
 2. downgraded python to 3.8
 3. updated requirements.txt after fixing package version conflicts
+4. changed model_util.py to use cpu if cuda is not available
 
 ### Steps
 1. downgrade to python 3.8
-2. py -3.8 -m venv venv
-3. .\venv\Scripts\Activate
-4. pip install -r requirements.txt
+```sh
+py -3.8 -m venv venv
+.\venv\Scripts\Activate
+```
+2. install reqs again
+```sh
+pip install -r requirements.txt
+```
+3. prep ambiqQA samples, amibigqa_dev_balance.json contains 100 sets of each ambiguous and non ambigous data sampled randomly from the validation portion of the dataset. While ambigqa_train_ambig.json and ambigqa_train_umambig.json contains the respective parsed portion of the ambigqa training set. Labels pairs with both 'singleAnswer' and 'multipleQAs' with removed
+```sh
+python tools/prepare_data.py 
+```
+
